@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/img_dab_service"
+        android:layout_width="182px"
+        android:layout_height="182px"
+        android:src="@mipmap/pic_default_nor"
+        android:scaleType="fitXY"
+        android:alpha="0.4"/>
+    <ImageView
+        android:id="@+id/img_shader"
+        android:layout_width="182px"
+        android:layout_height="182px"
+        android:src="@mipmap/pic_cover_dis"
+        android:scaleType="fitXY"/>
+    <ImageView
+        android:id="@+id/img_shadow"
+        android:layout_width="182px"
+        android:layout_height="182px"
+        android:src="@mipmap/pic_default_shadow_nor"
+        android:scaleType="fitXY"/>
+</FrameLayout>

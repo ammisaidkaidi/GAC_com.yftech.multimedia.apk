@@ -1,0 +1,15 @@
+package com.yftech.car.widget.media.flexbox;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.SOURCE)
+/* loaded from: /home/user/work/dex/classes2.dex */
+public @interface JustifyContent {
+    public static final int CENTER = 2;
+    public static final int FLEX_END = 1;
+    public static final int FLEX_START = 0;
+    public static final int SPACE_AROUND = 4;
+    public static final int SPACE_BETWEEN = 3;
+    public static final int SPACE_EVENLY = 5;
+}

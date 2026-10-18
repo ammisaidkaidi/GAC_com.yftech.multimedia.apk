@@ -1,0 +1,26 @@
+package android.app;
+
+import java.util.List;
+
+@Deprecated
+/* loaded from: /home/user/work/dex/classes.dex */
+public class FragmentManagerNonConfig {
+    private final List<FragmentManagerNonConfig> mChildNonConfigs;
+    private final List<Fragment> mFragments;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public FragmentManagerNonConfig(List<Fragment> list, List<FragmentManagerNonConfig> list2) {
+        this.mFragments = list;
+        this.mChildNonConfigs = list2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<Fragment> getFragments() {
+        return this.mFragments;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<FragmentManagerNonConfig> getChildNonConfigs() {
+        return this.mChildNonConfigs;
+    }
+}

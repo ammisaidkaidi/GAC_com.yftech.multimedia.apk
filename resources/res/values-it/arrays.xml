@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="date_week">
+        <item>Domenica</item>
+        <item>Lunedì</item>
+        <item>Martedì</item>
+        <item>Mercoledì</item>
+        <item>Giovedì</item>
+        <item>Venerdì</item>
+        <item>Sabato</item>
+    </array>
+    <array name="music_source_by_third_party_application">
+        <item>Xiami Music</item>
+        <item>Kugou</item>
+        <item>Netease Cloud Music</item>
+        <item>Xiami Music</item>
+        <item>Kugou</item>
+        <item>Netease Cloud Music</item>
+    </array>
+    <array name="music_source_selection">
+        <item>Bluetooth</item>
+        <item>USB</item>
+        <item>Apple CarPlay</item>
+        <item>CarLife</item>
+    </array>
+    <array name="usb_tabs">
+        <item>USB</item>
+    </array>
+</resources>

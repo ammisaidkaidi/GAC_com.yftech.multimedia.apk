@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="date_week">
+        <item>Воскресенье</item>
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+    </array>
+    <array name="music_source_by_third_party_application">
+        <item>Музыка «Сями»</item>
+        <item>Музыка «Кугоу»</item>
+        <item>Музыка «NetEase Cloud»</item>
+        <item>Музыка «Сями»</item>
+        <item>Музыка «Кугоу»</item>
+        <item>Музыка «NetEase Cloud»</item>
+    </array>
+    <array name="music_source_selection">
+        <item>Bluetooth</item>
+        <item>USB</item>
+        <item>Apple CarPlay</item>
+        <item>CarLife</item>
+    </array>
+    <array name="usb_tabs">
+        <item>USB</item>
+    </array>
+</resources>

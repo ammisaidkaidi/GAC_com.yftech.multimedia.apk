@@ -1,0 +1,32 @@
+.class Landroid/os/ZygoteStartFailedEx;
+.super Ljava/lang/Exception;
+.source "ZygoteProcess.java"
+
+
+# direct methods
+.method constructor <init>(Ljava/lang/String;)V
+    .locals 0
+
+    .line 41
+    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    .locals 0
+
+    .line 49
+    invoke-direct {p0, p1, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Ljava/lang/Throwable;)V
+    .locals 0
+
+    .line 45
+    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/Throwable;)V
+
+    return-void
+.end method

@@ -1,0 +1,232 @@
+.class public abstract Landroid/location/IGnssStatusListener$Stub;
+.super Landroid/os/Binder;
+.source "IGnssStatusListener.java"
+
+# interfaces
+.implements Landroid/location/IGnssStatusListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/location/IGnssStatusListener;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "Stub"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/location/IGnssStatusListener$Stub$Proxy;
+    }
+.end annotation
+
+
+# static fields
+.field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IGnssStatusListener"
+
+.field static final TRANSACTION_onFirstFix:I = 0x3
+
+.field static final TRANSACTION_onGnssStarted:I = 0x1
+
+.field static final TRANSACTION_onGnssStopped:I = 0x2
+
+.field static final TRANSACTION_onNmeaReceived:I = 0x5
+
+.field static final TRANSACTION_onSvStatusChanged:I = 0x4
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 17
+    invoke-direct {p0}, Landroid/os/Binder;-><init>()V
+
+    const-string v0, "android.location.IGnssStatusListener"
+
+    .line 18
+    invoke-virtual {p0, p0, v0}, Landroid/location/IGnssStatusListener$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static asInterface(Landroid/os/IBinder;)Landroid/location/IGnssStatusListener;
+    .locals 2
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    const-string v0, "android.location.IGnssStatusListener"
+
+    .line 29
+    invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    .line 30
+    instance-of v1, v0, Landroid/location/IGnssStatusListener;
+
+    if-eqz v1, :cond_1
+
+    .line 31
+    check-cast v0, Landroid/location/IGnssStatusListener;
+
+    return-object v0
+
+    .line 33
+    :cond_1
+    new-instance v0, Landroid/location/IGnssStatusListener$Stub$Proxy;
+
+    invoke-direct {v0, p0}, Landroid/location/IGnssStatusListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public asBinder()Landroid/os/IBinder;
+    .locals 0
+
+    return-object p0
+.end method
+
+.method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    .locals 10
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const-string v0, "android.location.IGnssStatusListener"
+
+    const v1, 0x5f4e5446
+
+    const/4 v2, 0x1
+
+    if-eq p1, v1, :cond_0
+
+    packed-switch p1, :pswitch_data_0
+
+    .line 99
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    move-result p0
+
+    return p0
+
+    .line 89
+    :pswitch_0
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 91
+    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide p3
+
+    .line 93
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 94
+    invoke-virtual {p0, p3, p4, p1}, Landroid/location/IGnssStatusListener$Stub;->onNmeaReceived(JLjava/lang/String;)V
+
+    return v2
+
+    .line 71
+    :pswitch_1
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 73
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    .line 75
+    invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v5
+
+    .line 77
+    invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
+
+    move-result-object v6
+
+    .line 79
+    invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
+
+    move-result-object v7
+
+    .line 81
+    invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
+
+    move-result-object v8
+
+    .line 83
+    invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
+
+    move-result-object v9
+
+    move-object v3, p0
+
+    .line 84
+    invoke-virtual/range {v3 .. v9}, Landroid/location/IGnssStatusListener$Stub;->onSvStatusChanged(I[I[F[F[F[F)V
+
+    return v2
+
+    .line 63
+    :pswitch_2
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 65
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result p1
+
+    .line 66
+    invoke-virtual {p0, p1}, Landroid/location/IGnssStatusListener$Stub;->onFirstFix(I)V
+
+    return v2
+
+    .line 57
+    :pswitch_3
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 58
+    invoke-virtual {p0}, Landroid/location/IGnssStatusListener$Stub;->onGnssStopped()V
+
+    return v2
+
+    .line 51
+    :pswitch_4
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 52
+    invoke-virtual {p0}, Landroid/location/IGnssStatusListener$Stub;->onGnssStarted()V
+
+    return v2
+
+    .line 46
+    :cond_0
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v2
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method

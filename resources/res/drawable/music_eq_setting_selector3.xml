@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_checked="true"
+        android:drawable="@mipmap/music_cardlist_btn_bg_sel3"/>
+    <item
+        android:state_checked="false"
+        android:drawable="@mipmap/music_cardlist_btn_bg_nor3"/>
+</selector>

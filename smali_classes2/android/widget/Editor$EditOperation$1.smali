@@ -1,0 +1,105 @@
+.class Landroid/widget/Editor$EditOperation$1;
+.super Ljava/lang/Object;
+.source "Editor.java"
+
+# interfaces
+.implements Landroid/os/Parcelable$ClassLoaderCreator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/widget/Editor$EditOperation;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/os/Parcelable$ClassLoaderCreator<",
+        "Landroid/widget/Editor$EditOperation;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    .line 6834
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public createFromParcel(Landroid/os/Parcel;)Landroid/widget/Editor$EditOperation;
+    .locals 1
+
+    .line 6837
+    new-instance p0, Landroid/widget/Editor$EditOperation;
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroid/widget/Editor$EditOperation;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+
+    return-object p0
+.end method
+
+.method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/widget/Editor$EditOperation;
+    .locals 0
+
+    .line 6842
+    new-instance p0, Landroid/widget/Editor$EditOperation;
+
+    invoke-direct {p0, p1, p2}, Landroid/widget/Editor$EditOperation;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+
+    return-object p0
+.end method
+
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 0
+
+    .line 6834
+    invoke-virtual {p0, p1}, Landroid/widget/Editor$EditOperation$1;->createFromParcel(Landroid/os/Parcel;)Landroid/widget/Editor$EditOperation;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
+    .locals 0
+
+    .line 6834
+    invoke-virtual {p0, p1, p2}, Landroid/widget/Editor$EditOperation$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/widget/Editor$EditOperation;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public newArray(I)[Landroid/widget/Editor$EditOperation;
+    .locals 0
+
+    .line 6847
+    new-array p0, p1, [Landroid/widget/Editor$EditOperation;
+
+    return-object p0
+.end method
+
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
+    .locals 0
+
+    .line 6834
+    invoke-virtual {p0, p1}, Landroid/widget/Editor$EditOperation$1;->newArray(I)[Landroid/widget/Editor$EditOperation;
+
+    move-result-object p0
+
+    return-object p0
+.end method

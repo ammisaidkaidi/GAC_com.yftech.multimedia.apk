@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.media.common.ui.widget.top_snackbar.SnackbarContentLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    android:gravity="center"
+    android:layout_gravity="top"
+    android:background="@mipmap/pic_toast_nor"
+    android:layout_width="match_parent"
+    android:layout_height="88px">
+    <TextView
+        android:textSize="28px"
+        android:textColor="@color/colorFFFFFF"
+        android:id="@+id/snackbar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TEST"/>
+    <Button
+        android:textColor="?attr/colorAccent"
+        android:layout_gravity="end|center_vertical"
+        android:id="@+id/snackbar_action"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/design_snackbar_extra_spacing_horizontal"
+        android:minWidth="48dp"
+        android:layout_marginStart="@dimen/design_snackbar_extra_spacing_horizontal"
+        style="?attr/borderlessButtonStyle"/>
+</com.media.common.ui.widget.top_snackbar.SnackbarContentLayout>

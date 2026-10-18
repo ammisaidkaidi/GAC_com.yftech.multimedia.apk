@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_selected="true"
+        android:drawable="@mipmap/btn_epg_before_dis"/>
+    <item
+        android:state_pressed="true"
+        android:drawable="@mipmap/btn_epg_before_dis"/>
+    <item
+        android:state_enabled="false"
+        android:drawable="@mipmap/btn_epg_before_dis"/>
+    <item android:drawable="@mipmap/btn_epg_before_nor"/>
+</selector>

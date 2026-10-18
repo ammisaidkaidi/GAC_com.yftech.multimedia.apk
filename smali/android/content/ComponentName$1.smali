@@ -1,0 +1,81 @@
+.class Landroid/content/ComponentName$1;
+.super Ljava/lang/Object;
+.source "ComponentName.java"
+
+# interfaces
+.implements Landroid/os/Parcelable$Creator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/content/ComponentName;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/os/Parcelable$Creator<",
+        "Landroid/content/ComponentName;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    .line 366
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public createFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
+    .locals 0
+
+    .line 368
+    new-instance p0, Landroid/content/ComponentName;
+
+    invoke-direct {p0, p1}, Landroid/content/ComponentName;-><init>(Landroid/os/Parcel;)V
+
+    return-object p0
+.end method
+
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 0
+
+    .line 366
+    invoke-virtual {p0, p1}, Landroid/content/ComponentName$1;->createFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public newArray(I)[Landroid/content/ComponentName;
+    .locals 0
+
+    .line 372
+    new-array p0, p1, [Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
+    .locals 0
+
+    .line 366
+    invoke-virtual {p0, p1}, Landroid/content/ComponentName$1;->newArray(I)[Landroid/content/ComponentName;
+
+    move-result-object p0
+
+    return-object p0
+.end method

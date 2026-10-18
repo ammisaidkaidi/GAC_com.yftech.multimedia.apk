@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@mipmap/dialog_btn001_bg"
+    android:padding="22px"
+    android:layout_width="764px"
+    android:layout_height="300px">
+    <TextView
+        android:textSize="36px"
+        android:textColor="@color/colorFFFFFF"
+        android:gravity="center"
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:text="@string/common_confirm"/>
+    <TextView
+        android:textSize="32px"
+        android:textColor="@color/colorB3FFFFFF"
+        android:gravity="center"
+        android:id="@+id/tv_confirm"
+        android:background="@drawable/btn_tips_dialog_for_single"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/common_confirm"/>
+</LinearLayout>

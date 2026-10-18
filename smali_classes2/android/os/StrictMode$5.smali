@@ -1,0 +1,63 @@
+.class Landroid/os/StrictMode$5;
+.super Ljava/lang/Object;
+.source "StrictMode.java"
+
+# interfaces
+.implements Landroid/os/MessageQueue$IdleHandler;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/os/StrictMode;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    .line 1832
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public queueIdle()Z
+    .locals 6
+
+    .line 1834
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    .line 1835
+    invoke-static {}, Landroid/os/StrictMode;->access$1800()J
+
+    move-result-wide v2
+
+    sub-long v2, v0, v2
+
+    const-wide/16 v4, 0x7530
+
+    cmp-long p0, v2, v4
+
+    if-lez p0, :cond_0
+
+    .line 1836
+    invoke-static {v0, v1}, Landroid/os/StrictMode;->access$1802(J)J
+
+    .line 1837
+    invoke-static {}, Landroid/os/StrictMode;->conditionallyCheckInstanceCounts()V
+
+    :cond_0
+    const/4 p0, 0x1
+
+    return p0
+.end method

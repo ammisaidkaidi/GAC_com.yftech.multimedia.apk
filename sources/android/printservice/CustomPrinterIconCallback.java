@@ -1,0 +1,29 @@
+package android.printservice;
+
+import android.graphics.drawable.Icon;
+import android.os.RemoteException;
+import android.print.PrinterId;
+import android.util.Log;
+
+/* loaded from: /home/user/work/dex/classes2.dex */
+public final class CustomPrinterIconCallback {
+    private static final String LOG_TAG = "CustomPrinterIconCB";
+    private final IPrintServiceClient mObserver;
+    private final PrinterId mPrinterId;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public CustomPrinterIconCallback(PrinterId printerId, IPrintServiceClient iPrintServiceClient) {
+        this.mPrinterId = printerId;
+        this.mObserver = iPrintServiceClient;
+    }
+
+    public boolean onCustomPrinterIconLoaded(Icon icon) {
+        try {
+            this.mObserver.onCustomPrinterIconLoaded(this.mPrinterId, icon);
+            return true;
+        } catch (RemoteException e) {
+            Log.e(LOG_TAG, "Could not update icon", e);
+            return false;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+package android.service.autofill;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+import android.view.autofill.AutofillId;
+import android.view.autofill.Helper;
+import com.android.internal.util.Preconditions;
+import java.util.Arrays;
+
+/* loaded from: /home/user/work/dex/classes2.dex */
+public final class LuhnChecksumValidator extends InternalValidator implements Validator, Parcelable {
+    public static final Parcelable.Creator<LuhnChecksumValidator> CREATOR = new Parcelable.Creator<LuhnChecksumValidator>() { // from class: android.service.autofill.LuhnChecksumValidator.1
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public LuhnChecksumValidator createFromParcel(Parcel parcel) {
+            return new LuhnChecksumValidator((AutofillId[]) parcel.readParcelableArray(null, AutofillId.class));
+        }
+
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public LuhnChecksumValidator[] newArray(int i) {
+            return new LuhnChecksumValidator[i];
+        }
+    };
+    private static final String TAG = "LuhnChecksumValidator";
+    private final AutofillId[] mIds;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public LuhnChecksumValidator(AutofillId... autofillIdArr) {
+        this.mIds = (AutofillId[]) Preconditions.checkArrayElementsNotNull(autofillIdArr, "ids");
+    }
+
+    private static boolean isLuhnChecksumValid(String str) {
+        int i = 0;
+        boolean z = false;
+        for (int length = str.length() - 1; length >= 0; length--) {
+            int charAt = str.charAt(length) - '0';
+            if (charAt >= 0 && charAt <= 9) {
+                if (z && (charAt = charAt * 2) > 9) {
+                    charAt -= 9;
+                }
+                i += charAt;
+                z = !z;
+            }
+        }
+        return i % 10 == 0;
+    }
+
+    @Override // android.service.autofill.InternalValidator
+    public boolean isValid(ValueFinder valueFinder) {
+        if (this.mIds == null || this.mIds.length == 0) {
+            return false;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (AutofillId autofillId : this.mIds) {
+            String findByAutofillId = valueFinder.findByAutofillId(autofillId);
+            if (findByAutofillId == null) {
+                if (Helper.sDebug) {
+                    Log.d(TAG, "No partial number for id " + autofillId);
+                }
+                return false;
+            }
+            sb.append(findByAutofillId);
+        }
+        String sb2 = sb.toString();
+        boolean isLuhnChecksumValid = isLuhnChecksumValid(sb2);
+        if (Helper.sDebug) {
+            Log.d(TAG, "isValid(" + sb2.length() + " chars): " + isLuhnChecksumValid);
+        }
+        return isLuhnChecksumValid;
+    }
+
+    public String toString() {
+        if (!Helper.sDebug) {
+            return super.toString();
+        }
+        return "LuhnChecksumValidator: [ids=" + Arrays.toString(this.mIds) + "]";
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeParcelableArray(this.mIds, i);
+    }
+}

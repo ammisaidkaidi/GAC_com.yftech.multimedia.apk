@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="date_week">
+        <item>الاحد</item>
+        <item>الاثنين</item>
+        <item>الثلاثاء</item>
+        <item>الاربعاء</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
+        <item>السبت</item>
+    </array>
+    <array name="music_source_by_third_party_application">
+        <item>موسيقى شيامي</item>
+        <item>Kugou</item>
+        <item>NetEase Cloud Music</item>
+        <item>موسيقى شيامي</item>
+        <item>Kugou</item>
+        <item>NetEase Cloud Music</item>
+    </array>
+    <array name="music_source_selection">
+        <item>بلوتوث</item>
+        <item>USB</item>
+        <item>Apple CarPlay</item>
+        <item>CarLife</item>
+    </array>
+    <array name="usb_tabs">
+        <item>USB</item>
+    </array>
+</resources>

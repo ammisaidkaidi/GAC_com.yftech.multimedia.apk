@@ -1,0 +1,5 @@
+# tooling / build leftovers — the APK itself is never committed
+*.apk
+*.dex
+*.jar
+.apktool/

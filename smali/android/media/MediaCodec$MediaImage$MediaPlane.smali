@@ -1,0 +1,90 @@
+.class Landroid/media/MediaCodec$MediaImage$MediaPlane;
+.super Landroid/media/Image$Plane;
+.source "MediaCodec.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/media/MediaCodec$MediaImage;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "MediaPlane"
+.end annotation
+
+
+# instance fields
+.field private final mColInc:I
+
+.field private final mData:Ljava/nio/ByteBuffer;
+
+.field private final mRowInc:I
+
+.field final synthetic this$0:Landroid/media/MediaCodec$MediaImage;
+
+
+# direct methods
+.method public constructor <init>(Landroid/media/MediaCodec$MediaImage;Ljava/nio/ByteBuffer;II)V
+    .locals 0
+
+    .line 3739
+    iput-object p1, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->this$0:Landroid/media/MediaCodec$MediaImage;
+
+    invoke-direct {p0}, Landroid/media/Image$Plane;-><init>()V
+
+    .line 3740
+    iput-object p2, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->mData:Ljava/nio/ByteBuffer;
+
+    .line 3741
+    iput p3, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->mRowInc:I
+
+    .line 3742
+    iput p4, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->mColInc:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getBuffer()Ljava/nio/ByteBuffer;
+    .locals 1
+
+    .line 3760
+    iget-object v0, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->this$0:Landroid/media/MediaCodec$MediaImage;
+
+    invoke-virtual {v0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
+
+    .line 3761
+    iget-object p0, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->mData:Ljava/nio/ByteBuffer;
+
+    return-object p0
+.end method
+
+.method public getPixelStride()I
+    .locals 1
+
+    .line 3753
+    iget-object v0, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->this$0:Landroid/media/MediaCodec$MediaImage;
+
+    invoke-virtual {v0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
+
+    .line 3754
+    iget p0, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->mColInc:I
+
+    return p0
+.end method
+
+.method public getRowStride()I
+    .locals 1
+
+    .line 3747
+    iget-object v0, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->this$0:Landroid/media/MediaCodec$MediaImage;
+
+    invoke-virtual {v0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
+
+    .line 3748
+    iget p0, p0, Landroid/media/MediaCodec$MediaImage$MediaPlane;->mRowInc:I
+
+    return p0
+.end method

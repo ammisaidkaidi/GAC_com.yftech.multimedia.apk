@@ -1,0 +1,194 @@
+.class final Landroid/view/Surface$HwuiContext;
+.super Ljava/lang/Object;
+.source "Surface.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/view/Surface;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x12
+    name = "HwuiContext"
+.end annotation
+
+
+# instance fields
+.field private mCanvas:Landroid/view/DisplayListCanvas;
+
+.field private mHwuiRenderer:J
+
+.field private final mIsWideColorGamut:Z
+
+.field private final mRenderNode:Landroid/view/RenderNode;
+
+.field final synthetic this$0:Landroid/view/Surface;
+
+
+# direct methods
+.method constructor <init>(Landroid/view/Surface;Z)V
+    .locals 4
+
+    .line 883
+    iput-object p1, p0, Landroid/view/Surface$HwuiContext;->this$0:Landroid/view/Surface;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-string v0, "HwuiCanvas"
+
+    const/4 v1, 0x0
+
+    .line 884
+    invoke-static {v0, v1}, Landroid/view/RenderNode;->create(Ljava/lang/String;Landroid/view/View;)Landroid/view/RenderNode;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/view/Surface$HwuiContext;->mRenderNode:Landroid/view/RenderNode;
+
+    .line 885
+    iget-object v0, p0, Landroid/view/Surface$HwuiContext;->mRenderNode:Landroid/view/RenderNode;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/RenderNode;->setClipToBounds(Z)Z
+
+    .line 886
+    iput-boolean p2, p0, Landroid/view/Surface$HwuiContext;->mIsWideColorGamut:Z
+
+    .line 887
+    iget-object v0, p0, Landroid/view/Surface$HwuiContext;->mRenderNode:Landroid/view/RenderNode;
+
+    iget-wide v0, v0, Landroid/view/RenderNode;->mNativeRenderNode:J
+
+    iget-wide v2, p1, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v0, v1, v2, v3, p2}, Landroid/view/Surface;->access$200(JJZ)J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Landroid/view/Surface$HwuiContext;->mHwuiRenderer:J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method destroy()V
+    .locals 4
+
+    .line 914
+    iget-wide v0, p0, Landroid/view/Surface$HwuiContext;->mHwuiRenderer:J
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_0
+
+    .line 915
+    iget-wide v0, p0, Landroid/view/Surface$HwuiContext;->mHwuiRenderer:J
+
+    invoke-static {v0, v1}, Landroid/view/Surface;->access$500(J)V
+
+    .line 916
+    iput-wide v2, p0, Landroid/view/Surface$HwuiContext;->mHwuiRenderer:J
+
+    :cond_0
+    return-void
+.end method
+
+.method isWideColorGamut()Z
+    .locals 0
+
+    .line 921
+    iget-boolean p0, p0, Landroid/view/Surface$HwuiContext;->mIsWideColorGamut:Z
+
+    return p0
+.end method
+
+.method lockCanvas(II)Landroid/graphics/Canvas;
+    .locals 1
+
+    .line 892
+    iget-object v0, p0, Landroid/view/Surface$HwuiContext;->mCanvas:Landroid/view/DisplayListCanvas;
+
+    if-nez v0, :cond_0
+
+    .line 895
+    iget-object v0, p0, Landroid/view/Surface$HwuiContext;->mRenderNode:Landroid/view/RenderNode;
+
+    invoke-virtual {v0, p1, p2}, Landroid/view/RenderNode;->start(II)Landroid/view/DisplayListCanvas;
+
+    move-result-object p1
+
+    iput-object p1, p0, Landroid/view/Surface$HwuiContext;->mCanvas:Landroid/view/DisplayListCanvas;
+
+    .line 896
+    iget-object p0, p0, Landroid/view/Surface$HwuiContext;->mCanvas:Landroid/view/DisplayListCanvas;
+
+    return-object p0
+
+    .line 893
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "Surface was already locked!"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method unlockAndPost(Landroid/graphics/Canvas;)V
+    .locals 1
+
+    .line 900
+    iget-object v0, p0, Landroid/view/Surface$HwuiContext;->mCanvas:Landroid/view/DisplayListCanvas;
+
+    if-ne p1, v0, :cond_0
+
+    .line 904
+    iget-object p1, p0, Landroid/view/Surface$HwuiContext;->mRenderNode:Landroid/view/RenderNode;
+
+    iget-object v0, p0, Landroid/view/Surface$HwuiContext;->mCanvas:Landroid/view/DisplayListCanvas;
+
+    invoke-virtual {p1, v0}, Landroid/view/RenderNode;->end(Landroid/view/DisplayListCanvas;)V
+
+    const/4 p1, 0x0
+
+    .line 905
+    iput-object p1, p0, Landroid/view/Surface$HwuiContext;->mCanvas:Landroid/view/DisplayListCanvas;
+
+    .line 906
+    iget-wide p0, p0, Landroid/view/Surface$HwuiContext;->mHwuiRenderer:J
+
+    invoke-static {p0, p1}, Landroid/view/Surface;->access$300(J)V
+
+    return-void
+
+    .line 901
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "canvas object must be the same instance that was previously returned by lockCanvas"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method updateSurface()V
+    .locals 4
+
+    .line 910
+    iget-wide v0, p0, Landroid/view/Surface$HwuiContext;->mHwuiRenderer:J
+
+    iget-object p0, p0, Landroid/view/Surface$HwuiContext;->this$0:Landroid/view/Surface;
+
+    iget-wide v2, p0, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v0, v1, v2, v3}, Landroid/view/Surface;->access$400(JJ)V
+
+    return-void
+.end method

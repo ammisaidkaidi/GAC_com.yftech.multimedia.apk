@@ -1,0 +1,81 @@
+.class Landroid/net/NetworkStats$1;
+.super Ljava/lang/Object;
+.source "NetworkStats.java"
+
+# interfaces
+.implements Landroid/os/Parcelable$Creator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/net/NetworkStats;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/os/Parcelable$Creator<",
+        "Landroid/net/NetworkStats;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    .line 1088
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkStats;
+    .locals 0
+
+    .line 1091
+    new-instance p0, Landroid/net/NetworkStats;
+
+    invoke-direct {p0, p1}, Landroid/net/NetworkStats;-><init>(Landroid/os/Parcel;)V
+
+    return-object p0
+.end method
+
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 0
+
+    .line 1088
+    invoke-virtual {p0, p1}, Landroid/net/NetworkStats$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkStats;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public newArray(I)[Landroid/net/NetworkStats;
+    .locals 0
+
+    .line 1096
+    new-array p0, p1, [Landroid/net/NetworkStats;
+
+    return-object p0
+.end method
+
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
+    .locals 0
+
+    .line 1088
+    invoke-virtual {p0, p1}, Landroid/net/NetworkStats$1;->newArray(I)[Landroid/net/NetworkStats;
+
+    move-result-object p0
+
+    return-object p0
+.end method

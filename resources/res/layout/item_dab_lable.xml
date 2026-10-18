@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="24px"
+    android:textColor="@color/colorFFFFFF"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:id="@+id/tv_dab_station_label"
+    android:background="@drawable/selector_dab_station_label_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:singleLine="true"
+    android:includeFontPadding="false"/>

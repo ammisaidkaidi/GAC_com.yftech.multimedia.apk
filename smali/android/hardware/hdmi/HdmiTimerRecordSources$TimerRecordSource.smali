@@ -1,0 +1,101 @@
+.class public final Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;
+.super Ljava/lang/Object;
+.source "HdmiTimerRecordSources.java"
+
+
+# annotations
+.annotation runtime Landroid/annotation/SystemApi;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/hardware/hdmi/HdmiTimerRecordSources;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "TimerRecordSource"
+.end annotation
+
+
+# instance fields
+.field private final mRecordSource:Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;
+
+.field private final mTimerInfo:Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;
+
+
+# direct methods
+.method private constructor <init>(Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;)V
+    .locals 0
+
+    .line 384
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 385
+    iput-object p1, p0, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->mTimerInfo:Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;
+
+    .line 386
+    iput-object p2, p0, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->mRecordSource:Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;Landroid/hardware/hdmi/HdmiTimerRecordSources$1;)V
+    .locals 0
+
+    .line 380
+    invoke-direct {p0, p1, p2}, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;-><init>(Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method getDataSize()I
+    .locals 2
+
+    .line 390
+    iget-object v0, p0, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->mTimerInfo:Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;
+
+    invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;->getDataSize()I
+
+    move-result v0
+
+    iget-object p0, p0, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->mRecordSource:Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1}, Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;->getDataSize(Z)I
+
+    move-result p0
+
+    add-int/2addr v0, p0
+
+    return v0
+.end method
+
+.method toByteArray([BI)I
+    .locals 2
+
+    .line 396
+    iget-object v0, p0, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->mTimerInfo:Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;
+
+    invoke-virtual {v0, p1, p2}, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerInfo;->toByteArray([BI)I
+
+    move-result v0
+
+    add-int/2addr p2, v0
+
+    .line 398
+    iget-object v0, p0, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->mRecordSource:Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, p1, p2}, Landroid/hardware/hdmi/HdmiRecordSources$RecordSource;->toByteArray(Z[BI)I
+
+    .line 399
+    invoke-virtual {p0}, Landroid/hardware/hdmi/HdmiTimerRecordSources$TimerRecordSource;->getDataSize()I
+
+    move-result p0
+
+    return p0
+.end method

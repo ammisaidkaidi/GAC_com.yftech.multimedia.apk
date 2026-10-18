@@ -1,0 +1,195 @@
+.class Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;
+.super Ljava/lang/Object;
+.source "Editor.java"
+
+# interfaces
+.implements Ljava/util/Comparator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/widget/Editor$SuggestionHelper;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "SuggestionSpanComparator"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Comparator<",
+        "Landroid/text/style/SuggestionSpan;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic this$1:Landroid/widget/Editor$SuggestionHelper;
+
+
+# direct methods
+.method private constructor <init>(Landroid/widget/Editor$SuggestionHelper;)V
+    .locals 0
+
+    .line 3407
+    iput-object p1, p0, Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;->this$1:Landroid/widget/Editor$SuggestionHelper;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroid/widget/Editor$SuggestionHelper;Landroid/widget/Editor$1;)V
+    .locals 0
+
+    .line 3407
+    invoke-direct {p0, p1}, Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;-><init>(Landroid/widget/Editor$SuggestionHelper;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public compare(Landroid/text/style/SuggestionSpan;Landroid/text/style/SuggestionSpan;)I
+    .locals 6
+
+    .line 3409
+    invoke-virtual {p1}, Landroid/text/style/SuggestionSpan;->getFlags()I
+
+    move-result v0
+
+    .line 3410
+    invoke-virtual {p2}, Landroid/text/style/SuggestionSpan;->getFlags()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_7
+
+    and-int/lit8 v2, v0, 0x1
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    if-eqz v2, :cond_0
+
+    move v2, v4
+
+    goto :goto_0
+
+    :cond_0
+    move v2, v3
+
+    :goto_0
+    and-int/lit8 v5, v1, 0x1
+
+    if-eqz v5, :cond_1
+
+    move v5, v4
+
+    goto :goto_1
+
+    :cond_1
+    move v5, v3
+
+    :goto_1
+    and-int/lit8 v0, v0, 0x2
+
+    if-eqz v0, :cond_2
+
+    move v0, v4
+
+    goto :goto_2
+
+    :cond_2
+    move v0, v3
+
+    :goto_2
+    and-int/lit8 v1, v1, 0x2
+
+    if-eqz v1, :cond_3
+
+    move v3, v4
+
+    :cond_3
+    const/4 v1, -0x1
+
+    if-eqz v2, :cond_4
+
+    if-nez v0, :cond_4
+
+    return v1
+
+    :cond_4
+    if-eqz v5, :cond_5
+
+    if-nez v3, :cond_5
+
+    return v4
+
+    :cond_5
+    if-eqz v0, :cond_6
+
+    return v1
+
+    :cond_6
+    if-eqz v3, :cond_7
+
+    return v4
+
+    .line 3423
+    :cond_7
+    iget-object v0, p0, Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;->this$1:Landroid/widget/Editor$SuggestionHelper;
+
+    invoke-static {v0}, Landroid/widget/Editor$SuggestionHelper;->access$2700(Landroid/widget/Editor$SuggestionHelper;)Ljava/util/HashMap;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Integer;
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    iget-object p0, p0, Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;->this$1:Landroid/widget/Editor$SuggestionHelper;
+
+    invoke-static {p0}, Landroid/widget/Editor$SuggestionHelper;->access$2700(Landroid/widget/Editor$SuggestionHelper;)Ljava/util/HashMap;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/lang/Integer;
+
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    sub-int/2addr p1, p0
+
+    return p1
+.end method
+
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
+
+    .line 3407
+    check-cast p1, Landroid/text/style/SuggestionSpan;
+
+    check-cast p2, Landroid/text/style/SuggestionSpan;
+
+    invoke-virtual {p0, p1, p2}, Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;->compare(Landroid/text/style/SuggestionSpan;Landroid/text/style/SuggestionSpan;)I
+
+    move-result p0
+
+    return p0
+.end method

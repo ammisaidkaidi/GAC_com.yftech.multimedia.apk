@@ -1,0 +1,934 @@
+.class final Landroid/view/autofill/AutofillManager$CompatibilityBridge;
+.super Ljava/lang/Object;
+.source "AutofillManager.java"
+
+# interfaces
+.implements Landroid/view/accessibility/AccessibilityManager$AccessibilityPolicy;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/view/autofill/AutofillManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x12
+    name = "CompatibilityBridge"
+.end annotation
+
+
+# instance fields
+.field mCompatServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field private final mFocusedBounds:Landroid/graphics/Rect;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field private mFocusedNodeId:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field private mFocusedWindowId:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field private final mTempBounds:Landroid/graphics/Rect;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field final synthetic this$0:Landroid/view/autofill/AutofillManager;
+
+
+# direct methods
+.method constructor <init>(Landroid/view/autofill/AutofillManager;)V
+    .locals 2
+
+    .line 2234
+    iput-object p1, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2219
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedBounds:Landroid/graphics/Rect;
+
+    .line 2221
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mTempBounds:Landroid/graphics/Rect;
+
+    const/4 v0, -0x1
+
+    .line 2224
+    iput v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    .line 2226
+    sget-wide v0, Landroid/view/accessibility/AccessibilityNodeInfo;->UNDEFINED_NODE_ID:J
+
+    iput-wide v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    .line 2235
+    invoke-static {p1}, Landroid/view/autofill/AutofillManager;->access$200(Landroid/view/autofill/AutofillManager;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object p1
+
+    .line 2236
+    invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityManager;->setAccessibilityPolicy(Landroid/view/accessibility/AccessibilityManager$AccessibilityPolicy;)V
+
+    return-void
+.end method
+
+.method private findViewByAccessibilityId(IJ)Landroid/view/View;
+    .locals 0
+
+    .line 2428
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {p0}, Landroid/view/autofill/AutofillManager;->access$400(Landroid/view/autofill/AutofillManager;)Landroid/view/autofill/AutofillManager$AutofillClient;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    .line 2432
+    :cond_0
+    invoke-static {p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
+
+    move-result p2
+
+    .line 2433
+    invoke-interface {p0, p2, p1}, Landroid/view/autofill/AutofillManager$AutofillClient;->autofillClientFindViewByAccessibilityIdTraversal(II)Landroid/view/View;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private findVirtualNodeByAccessibilityId(Landroid/view/View;I)Landroid/view/accessibility/AccessibilityNodeInfo;
+    .locals 0
+
+    .line 2437
+    invoke-virtual {p1}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    .line 2441
+    :cond_0
+    invoke-virtual {p0, p2}, Landroid/view/accessibility/AccessibilityNodeProvider;->createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private getCompatServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .locals 5
+
+    .line 2240
+    iget-object v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {v0}, Landroid/view/autofill/AutofillManager;->access$300(Landroid/view/autofill/AutofillManager;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    .line 2241
+    :try_start_0
+    iget-object v1, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mCompatServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    if-eqz v1, :cond_0
+
+    .line 2242
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mCompatServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    monitor-exit v0
+
+    return-object p0
+
+    .line 2244
+    :cond_0
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    .line 2245
+    new-instance v2, Landroid/content/ComponentName;
+
+    const-string v3, "android"
+
+    const-string v4, "com.android.server.autofill.AutofillCompatAccessibilityService"
+
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    .line 2247
+    iget-object v2, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {v2}, Landroid/view/autofill/AutofillManager;->access$200(Landroid/view/autofill/AutofillManager;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const v3, 0x100080
+
+    invoke-virtual {v2, v1, v3}, Landroid/content/pm/PackageManager;->resolveService(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
+
+    move-result-object v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 2250
+    :try_start_1
+    new-instance v3, Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    iget-object v4, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {v4}, Landroid/view/autofill/AutofillManager;->access$200(Landroid/view/autofill/AutofillManager;)Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-direct {v3, v2, v4}, Landroid/accessibilityservice/AccessibilityServiceInfo;-><init>(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)V
+
+    iput-object v3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mCompatServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 2255
+    :try_start_2
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mCompatServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    monitor-exit v0
+
+    return-object p0
+
+    :catch_0
+    const-string p0, "AutofillManager"
+
+    .line 2252
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Cannot find compat autofill service:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2253
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "Cannot find compat autofill service"
+
+    invoke-direct {p0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :catchall_0
+    move-exception p0
+
+    .line 2256
+    monitor-exit v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p0
+.end method
+
+.method private isVirtualNode(I)Z
+    .locals 0
+
+    const/4 p0, -0x1
+
+    if-eq p1, p0, :cond_0
+
+    const p0, 0x7fffffff
+
+    if-eq p1, p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method private notifyValueChanged(IJ)V
+    .locals 2
+
+    .line 2388
+    invoke-static {p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
+
+    move-result v0
+
+    .line 2389
+    invoke-direct {p0, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->isVirtualNode(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    .line 2392
+    :cond_0
+    invoke-direct {p0, p1, p2, p3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findViewByAccessibilityId(IJ)Landroid/view/View;
+
+    move-result-object p1
+
+    if-nez p1, :cond_1
+
+    return-void
+
+    .line 2396
+    :cond_1
+    invoke-direct {p0, p1, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findVirtualNodeByAccessibilityId(Landroid/view/View;I)Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object p2
+
+    if-nez p2, :cond_2
+
+    return-void
+
+    .line 2400
+    :cond_2
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    .line 2401
+    invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getText()Ljava/lang/CharSequence;
+
+    move-result-object p2
+
+    invoke-static {p2}, Landroid/view/autofill/AutofillValue;->forText(Ljava/lang/CharSequence;)Landroid/view/autofill/AutofillValue;
+
+    move-result-object p2
+
+    .line 2400
+    invoke-virtual {p0, p1, v0, p2}, Landroid/view/autofill/AutofillManager;->notifyValueChanged(Landroid/view/View;ILandroid/view/autofill/AutofillValue;)V
+
+    return-void
+.end method
+
+.method private notifyViewClicked(IJ)V
+    .locals 2
+
+    .line 2405
+    invoke-static {p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
+
+    move-result v0
+
+    .line 2406
+    invoke-direct {p0, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->isVirtualNode(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    .line 2409
+    :cond_0
+    invoke-direct {p0, p1, p2, p3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findViewByAccessibilityId(IJ)Landroid/view/View;
+
+    move-result-object p1
+
+    if-nez p1, :cond_1
+
+    return-void
+
+    .line 2413
+    :cond_1
+    invoke-direct {p0, p1, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findVirtualNodeByAccessibilityId(Landroid/view/View;I)Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object p2
+
+    if-nez p2, :cond_2
+
+    return-void
+
+    .line 2417
+    :cond_2
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-virtual {p0, p1, v0}, Landroid/view/autofill/AutofillManager;->notifyViewClicked(Landroid/view/View;I)V
+
+    return-void
+.end method
+
+.method private notifyViewEntered(IJLandroid/graphics/Rect;)Z
+    .locals 3
+
+    .line 2350
+    invoke-static {p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
+
+    move-result v0
+
+    .line 2351
+    invoke-direct {p0, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->isVirtualNode(I)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    .line 2354
+    :cond_0
+    invoke-direct {p0, p1, p2, p3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findViewByAccessibilityId(IJ)Landroid/view/View;
+
+    move-result-object p1
+
+    if-nez p1, :cond_1
+
+    return v2
+
+    .line 2358
+    :cond_1
+    invoke-direct {p0, p1, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findVirtualNodeByAccessibilityId(Landroid/view/View;I)Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object p2
+
+    if-nez p2, :cond_2
+
+    return v2
+
+    .line 2362
+    :cond_2
+    invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->isEditable()Z
+
+    move-result p3
+
+    if-nez p3, :cond_3
+
+    return v2
+
+    .line 2365
+    :cond_3
+    iget-object p3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mTempBounds:Landroid/graphics/Rect;
+
+    .line 2366
+    invoke-virtual {p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getBoundsInScreen(Landroid/graphics/Rect;)V
+
+    .line 2367
+    invoke-virtual {p3, p4}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_4
+
+    return v2
+
+    .line 2370
+    :cond_4
+    invoke-virtual {p4, p3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    .line 2371
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-virtual {p0, p1, v0, p3}, Landroid/view/autofill/AutofillManager;->notifyViewEntered(Landroid/view/View;ILandroid/graphics/Rect;)V
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method private notifyViewExited(IJ)V
+    .locals 2
+
+    .line 2376
+    invoke-static {p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
+
+    move-result v0
+
+    .line 2377
+    invoke-direct {p0, v0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->isVirtualNode(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    .line 2380
+    :cond_0
+    invoke-direct {p0, p1, p2, p3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->findViewByAccessibilityId(IJ)Landroid/view/View;
+
+    move-result-object p1
+
+    if-nez p1, :cond_1
+
+    return-void
+
+    .line 2384
+    :cond_1
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-virtual {p0, p1, v0}, Landroid/view/autofill/AutofillManager;->notifyViewExited(Landroid/view/View;I)V
+
+    return-void
+.end method
+
+.method private updateTrackedViewsLocked()V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+
+    .line 2422
+    iget-object v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {v0}, Landroid/view/autofill/AutofillManager;->access$500(Landroid/view/autofill/AutofillManager;)Landroid/view/autofill/AutofillManager$TrackedViews;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 2423
+    iget-object p0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {p0}, Landroid/view/autofill/AutofillManager;->access$500(Landroid/view/autofill/AutofillManager;)Landroid/view/autofill/AutofillManager$TrackedViews;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/autofill/AutofillManager$TrackedViews;->onVisibleForAutofillChangedLocked()V
+
+    :cond_0
+    return-void
+.end method
+
+
+# virtual methods
+.method public getEnabledAccessibilityServiceList(ILjava/util/List;)Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/List<",
+            "Landroid/accessibilityservice/AccessibilityServiceInfo;",
+            ">;)",
+            "Ljava/util/List<",
+            "Landroid/accessibilityservice/AccessibilityServiceInfo;",
+            ">;"
+        }
+    .end annotation
+
+    if-nez p2, :cond_0
+
+    .line 2286
+    new-instance p2, Ljava/util/ArrayList;
+
+    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+
+    .line 2288
+    :cond_0
+    invoke-direct {p0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->getCompatServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    move-result-object p0
+
+    invoke-interface {p2, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object p2
+.end method
+
+.method public getInstalledAccessibilityServiceList(Ljava/util/List;)Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/accessibilityservice/AccessibilityServiceInfo;",
+            ">;)",
+            "Ljava/util/List<",
+            "Landroid/accessibilityservice/AccessibilityServiceInfo;",
+            ">;"
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    .line 2276
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    .line 2278
+    :cond_0
+    invoke-direct {p0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->getCompatServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    move-result-object p0
+
+    invoke-interface {p1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object p1
+.end method
+
+.method public getRelevantEventTypes(I)I
+    .locals 0
+
+    or-int/lit8 p0, p1, 0x8
+
+    or-int/lit8 p0, p0, 0x10
+
+    or-int/lit8 p0, p0, 0x1
+
+    or-int/lit16 p0, p0, 0x800
+
+    return p0
+.end method
+
+.method public isEnabled(Z)Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;ZI)Landroid/view/accessibility/AccessibilityEvent;
+    .locals 6
+
+    .line 2295
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
+
+    move-result p3
+
+    const/4 v0, 0x1
+
+    if-eq p3, v0, :cond_8
+
+    const/16 v0, 0x8
+
+    if-eq p3, v0, :cond_4
+
+    const/16 v0, 0x10
+
+    if-eq p3, v0, :cond_2
+
+    const/16 v0, 0x800
+
+    if-eq p3, v0, :cond_0
+
+    goto/16 :goto_0
+
+    .line 2334
+    :cond_0
+    iget-object p3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {p3}, Landroid/view/autofill/AutofillManager;->access$400(Landroid/view/autofill/AutofillManager;)Landroid/view/autofill/AutofillManager$AutofillClient;
+
+    move-result-object p3
+
+    if-eqz p3, :cond_9
+
+    .line 2336
+    iget-object v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {v0}, Landroid/view/autofill/AutofillManager;->access$300(Landroid/view/autofill/AutofillManager;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    .line 2337
+    :try_start_0
+    invoke-interface {p3}, Landroid/view/autofill/AutofillManager$AutofillClient;->autofillClientIsFillUiShowing()Z
+
+    move-result p3
+
+    if-eqz p3, :cond_1
+
+    .line 2338
+    iget p3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    iget-wide v1, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    iget-object v3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedBounds:Landroid/graphics/Rect;
+
+    invoke-direct {p0, p3, v1, v2, v3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->notifyViewEntered(IJLandroid/graphics/Rect;)Z
+
+    .line 2340
+    :cond_1
+    invoke-direct {p0}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->updateTrackedViewsLocked()V
+
+    .line 2341
+    monitor-exit v0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+
+    .line 2319
+    :cond_2
+    iget-object p3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {p3}, Landroid/view/autofill/AutofillManager;->access$300(Landroid/view/autofill/AutofillManager;)Ljava/lang/Object;
+
+    move-result-object p3
+
+    monitor-enter p3
+
+    .line 2320
+    :try_start_1
+    iget v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_3
+
+    iget-wide v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    .line 2321
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
+
+    move-result-wide v2
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_3
+
+    .line 2322
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
+
+    move-result-wide v1
+
+    invoke-direct {p0, v0, v1, v2}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->notifyValueChanged(IJ)V
+
+    .line 2324
+    :cond_3
+    monitor-exit p3
+
+    goto :goto_0
+
+    :catchall_1
+    move-exception p0
+
+    monitor-exit p3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    throw p0
+
+    .line 2297
+    :cond_4
+    iget-object p3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {p3}, Landroid/view/autofill/AutofillManager;->access$300(Landroid/view/autofill/AutofillManager;)Ljava/lang/Object;
+
+    move-result-object p3
+
+    monitor-enter p3
+
+    .line 2298
+    :try_start_2
+    iget v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_5
+
+    iget-wide v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    .line 2299
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
+
+    move-result-wide v2
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_5
+
+    .line 2300
+    monitor-exit p3
+
+    return-object p1
+
+    .line 2302
+    :cond_5
+    iget v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_6
+
+    iget-wide v2, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    sget-wide v4, Landroid/view/accessibility/AccessibilityNodeInfo;->UNDEFINED_NODE_ID:J
+
+    cmp-long v0, v2, v4
+
+    if-eqz v0, :cond_6
+
+    .line 2304
+    iget v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    iget-wide v2, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    invoke-direct {p0, v0, v2, v3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->notifyViewExited(IJ)V
+
+    .line 2305
+    iput v1, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    .line 2306
+    sget-wide v0, Landroid/view/accessibility/AccessibilityNodeInfo;->UNDEFINED_NODE_ID:J
+
+    iput-wide v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    .line 2307
+    iget-object v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedBounds:Landroid/graphics/Rect;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 2309
+    :cond_6
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
+
+    move-result v0
+
+    .line 2310
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
+
+    move-result-wide v1
+
+    .line 2311
+    iget-object v3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedBounds:Landroid/graphics/Rect;
+
+    invoke-direct {p0, v0, v1, v2, v3}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->notifyViewEntered(IJLandroid/graphics/Rect;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    .line 2312
+    iput v0, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedWindowId:I
+
+    .line 2313
+    iput-wide v1, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->mFocusedNodeId:J
+
+    .line 2315
+    :cond_7
+    monitor-exit p3
+
+    goto :goto_0
+
+    :catchall_2
+    move-exception p0
+
+    monitor-exit p3
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    throw p0
+
+    .line 2328
+    :cond_8
+    iget-object p3, p0, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->this$0:Landroid/view/autofill/AutofillManager;
+
+    invoke-static {p3}, Landroid/view/autofill/AutofillManager;->access$300(Landroid/view/autofill/AutofillManager;)Ljava/lang/Object;
+
+    move-result-object p3
+
+    monitor-enter p3
+
+    .line 2329
+    :try_start_3
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
+
+    move-result-wide v1
+
+    invoke-direct {p0, v0, v1, v2}, Landroid/view/autofill/AutofillManager$CompatibilityBridge;->notifyViewClicked(IJ)V
+
+    .line 2330
+    monitor-exit p3
+
+    :cond_9
+    :goto_0
+    if-eqz p2, :cond_a
+
+    goto :goto_1
+
+    :cond_a
+    const/4 p1, 0x0
+
+    :goto_1
+    return-object p1
+
+    :catchall_3
+    move-exception p0
+
+    monitor-exit p3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+
+    throw p0
+.end method

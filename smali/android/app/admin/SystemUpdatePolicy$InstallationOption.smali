@@ -1,0 +1,81 @@
+.class public Landroid/app/admin/SystemUpdatePolicy$InstallationOption;
+.super Ljava/lang/Object;
+.source "SystemUpdatePolicy.java"
+
+
+# annotations
+.annotation runtime Landroid/annotation/SystemApi;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/app/admin/SystemUpdatePolicy;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "InstallationOption"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/app/admin/SystemUpdatePolicy$InstallationOption$InstallationOptionType;
+    }
+.end annotation
+
+
+# instance fields
+.field private mEffectiveTime:J
+
+.field private final mType:I
+
+
+# direct methods
+.method constructor <init>(IJ)V
+    .locals 0
+
+    .line 570
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 571
+    iput p1, p0, Landroid/app/admin/SystemUpdatePolicy$InstallationOption;->mType:I
+
+    .line 572
+    iput-wide p2, p0, Landroid/app/admin/SystemUpdatePolicy$InstallationOption;->mEffectiveTime:J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getEffectiveTime()J
+    .locals 2
+
+    .line 590
+    iget-wide v0, p0, Landroid/app/admin/SystemUpdatePolicy$InstallationOption;->mEffectiveTime:J
+
+    return-wide v0
+.end method
+
+.method public getType()I
+    .locals 0
+
+    .line 581
+    iget p0, p0, Landroid/app/admin/SystemUpdatePolicy$InstallationOption;->mType:I
+
+    return p0
+.end method
+
+.method protected limitEffectiveTime(J)V
+    .locals 2
+
+    .line 595
+    iget-wide v0, p0, Landroid/app/admin/SystemUpdatePolicy$InstallationOption;->mEffectiveTime:J
+
+    invoke-static {v0, v1, p1, p2}, Ljava/lang/Long;->min(JJ)J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Landroid/app/admin/SystemUpdatePolicy$InstallationOption;->mEffectiveTime:J
+
+    return-void
+.end method

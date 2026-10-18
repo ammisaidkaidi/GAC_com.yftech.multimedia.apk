@@ -1,0 +1,33 @@
+package com.android.internal.os;
+
+import android.os.SystemClock;
+import com.android.internal.os.KernelUidCpuTimeReaderBase.Callback;
+
+/* loaded from: /home/user/work/dex/classes3.dex */
+public abstract class KernelUidCpuTimeReaderBase<T extends Callback> {
+    protected static final boolean DEBUG = false;
+    private static final long DEFAULT_THROTTLE_INTERVAL = 10000;
+    private final String TAG = getClass().getSimpleName();
+    private long mLastTimeReadMs = Long.MIN_VALUE;
+    private long mThrottleInterval = DEFAULT_THROTTLE_INTERVAL;
+
+    /* loaded from: /home/user/work/dex/classes3.dex */
+    public interface Callback {
+    }
+
+    protected abstract void readDeltaImpl(T t);
+
+    public void readDelta(T t) {
+        if (SystemClock.elapsedRealtime() < this.mLastTimeReadMs + this.mThrottleInterval) {
+            return;
+        }
+        readDeltaImpl(t);
+        this.mLastTimeReadMs = SystemClock.elapsedRealtime();
+    }
+
+    public void setThrottleInterval(long j) {
+        if (j >= 0) {
+            this.mThrottleInterval = j;
+        }
+    }
+}

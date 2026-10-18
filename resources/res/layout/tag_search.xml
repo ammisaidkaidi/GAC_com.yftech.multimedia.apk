@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="28px"
+    android:textColor="@color/colorB3FFFFFF"
+    android:gravity="center"
+    android:background="@drawable/music_search_btn_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="120px"
+    android:minHeight="56px"
+    android:maxLines="1"
+    android:paddingStart="32px"
+    android:paddingEnd="32px"/>

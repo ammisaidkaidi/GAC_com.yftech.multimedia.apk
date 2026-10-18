@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="dab_ptys">
+        <item>@string/pty_1</item>
+        <item>@string/pty_2</item>
+        <item>@string/pty_3</item>
+        <item>@string/pty_4</item>
+        <item>@string/pty_5</item>
+        <item>@string/pty_6</item>
+        <item>@string/pty_7</item>
+        <item>@string/pty_8</item>
+        <item>@string/pty_9</item>
+        <item>@string/pty_10</item>
+        <item>@string/pty_11</item>
+        <item>@string/pty_12</item>
+        <item>@string/pty_13</item>
+        <item>@string/pty_14</item>
+        <item>@string/pty_15</item>
+        <item>@string/pty_16</item>
+        <item>@string/pty_17</item>
+        <item>@string/pty_18</item>
+        <item>@string/pty_19</item>
+        <item>@string/pty_20</item>
+        <item>@string/pty_21</item>
+        <item>@string/pty_22</item>
+        <item>@string/pty_23</item>
+        <item>@string/pty_24</item>
+        <item>@string/pty_25</item>
+        <item>@string/pty_26</item>
+        <item>@string/pty_27</item>
+        <item>@string/pty_28</item>
+        <item>@string/pty_29</item>
+        <item>@string/pty_30</item>
+        <item>@string/pty_31</item>
+        <item>@string/pty_32</item>
+    </array>
+    <array name="date_week">
+        <item>星期日</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </array>
+    <array name="music_dbx">
+        <item>@mipmap/music_03_dbx_00</item>
+        <item>@mipmap/music_03_dbx_01</item>
+        <item>@mipmap/music_03_dbx_02</item>
+        <item>@mipmap/music_03_dbx_03</item>
+        <item>@mipmap/music_03_dbx_04</item>
+        <item>@mipmap/music_03_dbx_05</item>
+        <item>@mipmap/music_03_dbx_06</item>
+        <item>@mipmap/music_03_dbx_07</item>
+        <item>@mipmap/music_03_dbx_08</item>
+        <item>@mipmap/music_03_dbx_09</item>
+        <item>@mipmap/music_03_dbx_10</item>
+        <item>@mipmap/music_03_dbx_11</item>
+        <item>@mipmap/music_03_dbx_12</item>
+        <item>@mipmap/music_03_dbx_13</item>
+        <item>@mipmap/music_03_dbx_14</item>
+        <item>@mipmap/music_03_dbx_15</item>
+        <item>@mipmap/music_03_dbx_16</item>
+        <item>@mipmap/music_03_dbx_17</item>
+        <item>@mipmap/music_03_dbx_18</item>
+        <item>@mipmap/music_03_dbx_19</item>
+        <item>@mipmap/music_03_dbx_20</item>
+        <item>@mipmap/music_03_dbx_21</item>
+    </array>
+    <array name="music_hbx">
+        <item>@mipmap/music_02_hbx_00</item>
+        <item>@mipmap/music_02_hbx_01</item>
+        <item>@mipmap/music_02_hbx_02</item>
+        <item>@mipmap/music_02_hbx_03</item>
+        <item>@mipmap/music_02_hbx_04</item>
+        <item>@mipmap/music_02_hbx_05</item>
+        <item>@mipmap/music_02_hbx_06</item>
+        <item>@mipmap/music_02_hbx_07</item>
+        <item>@mipmap/music_02_hbx_08</item>
+        <item>@mipmap/music_02_hbx_09</item>
+        <item>@mipmap/music_02_hbx_10</item>
+        <item>@mipmap/music_02_hbx_11</item>
+        <item>@mipmap/music_02_hbx_12</item>
+        <item>@mipmap/music_02_hbx_13</item>
+        <item>@mipmap/music_02_hbx_14</item>
+        <item>@mipmap/music_02_hbx_15</item>
+        <item>@mipmap/music_02_hbx_16</item>
+        <item>@mipmap/music_02_hbx_17</item>
+        <item>@mipmap/music_02_hbx_18</item>
+        <item>@mipmap/music_02_hbx_19</item>
+        <item>@mipmap/music_02_hbx_20</item>
+        <item>@mipmap/music_02_hbx_21</item>
+        <item>@mipmap/music_02_hbx_22</item>
+        <item>@mipmap/music_02_hbx_23</item>
+    </array>
+    <array name="music_source_by_third_party_application">
+        <item>虾米音乐</item>
+        <item>酷狗</item>
+        <item>网易云音乐</item>
+        <item>虾米音乐</item>
+        <item>酷狗</item>
+        <item>网易云音乐</item>
+    </array>
+    <array name="music_source_selection">
+        <item>蓝牙</item>
+        <item>USB</item>
+        <item>Apple CarPlay</item>
+        <item>CarLife</item>
+    </array>
+    <array name="usb_tabs">
+        <item>USB</item>
+    </array>
+</resources>

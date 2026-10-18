@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dab_list_title_size">22px</dimen>
+    <dimen name="music_effect_custom_text_size">20px</dimen>
+    <dimen name="music_source_select_text_size">26px</dimen>
+</resources>

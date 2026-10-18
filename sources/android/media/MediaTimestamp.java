@@ -1,0 +1,54 @@
+package android.media;
+
+/* loaded from: /home/user/work/dex/classes.dex */
+public final class MediaTimestamp {
+    public static final MediaTimestamp TIMESTAMP_UNKNOWN = new MediaTimestamp(-1, -1, 0.0f);
+    public final float clockRate;
+    public final long mediaTimeUs;
+    public final long nanoTime;
+
+    public long getAnchorMediaTimeUs() {
+        return this.mediaTimeUs;
+    }
+
+    public long getAnchorSytemNanoTime() {
+        return this.nanoTime;
+    }
+
+    public float getMediaClockRate() {
+        return this.clockRate;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public MediaTimestamp(long j, long j2, float f) {
+        this.mediaTimeUs = j;
+        this.nanoTime = j2;
+        this.clockRate = f;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public MediaTimestamp() {
+        this.mediaTimeUs = 0L;
+        this.nanoTime = 0L;
+        this.clockRate = 1.0f;
+    }
+
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        MediaTimestamp mediaTimestamp = (MediaTimestamp) obj;
+        return this.mediaTimeUs == mediaTimestamp.mediaTimeUs && this.nanoTime == mediaTimestamp.nanoTime && ((double) ((int) Math.abs(this.clockRate - mediaTimestamp.clockRate))) < 0.001d;
+    }
+
+    public String toString() {
+        return getClass().getName() + "{AnchorMediaTimeUs=" + this.mediaTimeUs + " AnchorSystemNanoTime=" + this.nanoTime + " clockRate=" + this.clockRate + "}";
+    }
+}

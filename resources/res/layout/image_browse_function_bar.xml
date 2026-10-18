@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_rotate"
+        android:layout_width="46px"
+        android:layout_height="46px"
+        android:src="@drawable/music_icon_bg_selected_2"
+        android:layout_marginEnd="114px"/>
+    <ImageView
+        android:id="@+id/iv_previous"
+        android:layout_width="46px"
+        android:layout_height="46px"
+        android:src="@drawable/music_pic_shangyishou"
+        android:layout_marginEnd="114px"/>
+    <ImageView
+        android:id="@+id/iv_slide"
+        android:layout_width="46px"
+        android:layout_height="46px"
+        android:src="@drawable/music_icon_bg_selected_3"
+        android:layout_marginEnd="114px"/>
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="46px"
+        android:layout_height="46px"
+        android:src="@drawable/music_pic_xiayishou"
+        android:layout_marginEnd="114px"/>
+    <ImageView
+        android:id="@+id/iv_wall_paper"
+        android:layout_width="46px"
+        android:layout_height="46px"
+        android:src="@drawable/music_icon_bg_selected_1"/>
+</LinearLayout>

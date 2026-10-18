@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="84px">
+    <TextView
+        android:textSize="30px"
+        android:textColor="@color/colorB3FFFFFF"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:id="@+id/tv_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 "
+        android:singleLine="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="92px"/>
+    <TextView
+        android:textSize="30px"
+        android:textColor="@color/colorB3FFFFFF"
+        android:ellipsize="end"
+        android:id="@+id/tv_announcement_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dab_announcement"
+        android:singleLine="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/tv_index"/>
+    <CheckBox
+        android:id="@+id/ck_announcement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/selector_checkbox"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="56px"
+        android:layout_alignParentEnd="true"/>
+    <View
+        android:background="#14ccddff"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="92px"
+        android:layout_marginEnd="56px"/>
+</RelativeLayout>
